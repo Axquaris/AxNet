@@ -6,6 +6,9 @@ public class Neuron extends Buffer {
   private float[] weights;
   private float bias;
   
+  private float lastOutput;
+  private int timesFired;
+  
   public Neuron(int numInputs) {
     inputs = new Buffer[numInputs];
     weights = new float[numInputs];
@@ -15,41 +18,47 @@ public class Neuron extends Buffer {
     for (int i = 0; i < numInputs; i++)
       weights[i] = 1;
     bias = 0;
+    
+    timesFired = 0;
   }
   
   public Neuron(Buffer[] inputs, float[] weights, float bias) {
     this.inputs = inputs;
     this.weights = weights;
     this.bias = bias;
+    
+    timesFired = 0;
   }
   
   public void process() {
     //Activation Function
     float activation = 0;
     for (int i = 0; i < inputs.length; i++) {
-      activation += inputs[i].getOutput() * weights[i];
+      activation += inputs[i].getOutput(timesFired) * weights[i];
     }
     activation += bias;
     
     //Transfer Function
+    lastOutput = output;
     output = 2 / (1 + pow(E, -2*activation)) - 1;
+    timesFired++;
   }
   
   //Mutator Methods
-  public int linkTo(Neuron n) {
-    for(int i = 0; i < n.inputs.length; i++) {
-      if(n.inputs[i] == null) {
-        n.inputs[i] = this;
+  public int addInput(Buffer n) { //adds self to inputs of given neuron
+    for(int i = 0; i < inputs.length; i++) {
+      if(inputs[i] == null) {
+        inputs[i] = n;
         return i;
       }
     }
     return -1;
   }
   
-  public int linkTo(Neuron n, int weight) {
-    int i = linkTo(n);
+  public int addInput(Buffer n, float weight) {
+    int i = addInput(n);
     if (i != -1)
-      n.weights[i] = weight;
+      weights[i] = weight;
     return i;
   }
   
@@ -84,5 +93,12 @@ public class Neuron extends Buffer {
   
   public float getBias() {
     return bias;
+  }
+  
+  @Override
+  public float getOutput(int otherTimesFired) {
+    if (timesFired > otherTimesFired)
+      return lastOutput;
+    return output;
   }
 }

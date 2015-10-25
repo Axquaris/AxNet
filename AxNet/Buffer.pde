@@ -13,4 +13,8 @@ public class Buffer {
   public float getOutput() {
     return output;
   }
+  
+  public float getOutput(int n) {
+    return output;
+  }
 }

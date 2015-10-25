@@ -19,7 +19,7 @@ public class UiSlider
     this.value = value;
     
     buttonW = height*2.5;
-      
+    
     valueX  = map(value, min, max, x, x+width-buttonW);
     
     // register it
@@ -65,6 +65,6 @@ public class UiSlider
   //Specific cases
   float getValue() {
     float v = map( valueX, x, x+width-buttonW, min, max );
-    return round(v*100)/100f;
+    return round(pow(v, 3)*10000)/10000f;
   }
 }

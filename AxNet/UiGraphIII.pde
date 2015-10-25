@@ -26,7 +26,7 @@ public class UiGrapherIII{
     pNB = 0;
     pointsC = new float[w - edge - numberEdge];
     pNC = 0;
-    max = 0;
+    max = 1;
     min = 0;
   }
   

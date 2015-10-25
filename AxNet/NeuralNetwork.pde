@@ -37,7 +37,7 @@ public class NeuralNetwork {
     return -1;
   }
   
-  public int addLayers(NeuronLayer[] nl) {
+  public int addLayers(NeuralLayer[] nl) {
     for (int i = 0; i <= layers.length - nl.length; i++) {
       if (layers[i] == null) {
         for (int j = 0; j < nl.length; j++)

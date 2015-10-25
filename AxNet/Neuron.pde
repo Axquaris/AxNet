@@ -27,7 +27,7 @@ public class Neuron extends Buffer {
     //Activation Function
     float activation = 0;
     for (int i = 0; i < inputs.length; i++) {
-      activation += inputs[i].output * weights[i];
+      activation += inputs[i].getOutput() * weights[i];
     }
     activation += bias;
     
@@ -76,9 +76,10 @@ public class Neuron extends Buffer {
   public float getWeight(Buffer f) {
     for (int i = 0; i < inputs.length; i++) {
       if (inputs[i] == f)
-        return getWeight(w, i);
+        return getWeight(i);
     }
-    return null;
+    System.err.println("ERROR AT NEURON "+this+".getWeight(Buffer f)");
+    return 0;
   }
   
   public float getBias() {

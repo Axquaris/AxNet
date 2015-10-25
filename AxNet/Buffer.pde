@@ -1,8 +1,16 @@
 
 public class Buffer {
-  public float output;
+  protected float output;
   
   public Buffer() {
     output = 0;
+  }
+  
+  public void setOutput(float f) {
+    output = f;
+  }
+  
+  public float getOutput() {
+    return output;
   }
 }

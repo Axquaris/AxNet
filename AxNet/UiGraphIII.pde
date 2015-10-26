@@ -70,21 +70,22 @@ public class UiGrapherIII{
   }
   
   void render(){
-    fill(173, 117, 77);
+    fill(200);
     rect(x, y, w, h);
-    stroke(0);
     strokeWeight(3);
+    
     //Draws graphs
+    stroke(83, 81, 84);
+    for (int i = 0; i < pNC-1; i++) {
+      line(x+numberEdge+i, getPosC(i), x+numberEdge+(i+1), getPosC(i+1));
+    }
+    stroke(218, 124, 48);
     for (int i = 0; i < pNA-1; i++) {
       line(x+numberEdge+i, getPosA(i), x+numberEdge+(i+1), getPosA(i+1));
     }
-    stroke(66, 110, 36);
+    stroke(57, 106, 177);
     for (int i = 0; i < pNB-1; i++) {
       line(x+numberEdge+i, getPosB(i), x+numberEdge+(i+1), getPosB(i+1));
-    }
-    stroke(145, 15, 0);
-    for (int i = 0; i < pNC-1; i++) {
-      line(x+numberEdge+i, getPosC(i), x+numberEdge+(i+1), getPosC(i+1));
     }
     stroke(0);
     strokeWeight(1);

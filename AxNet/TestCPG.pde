@@ -31,7 +31,7 @@ class TestCPG {
   }
   
   void drawTCPG() {
-    background(57, 103, 144);
+    background(89, 123, 150);
     
     updateVars();
     if (frame % 2 == 0) {
@@ -40,9 +40,19 @@ class TestCPG {
     }
     graph.plotA(n1.getOutput());
     graph.plotB(n2.getOutput());
+    graph.plotC(n1.getOutput()+n2.getOutput());
     
     //UI
     graph.render();
+    strokeWeight(1);
+    stroke(0);
+    line(0, 85, width, 85);
+    line(0, 125, width, 125);
+    textSize( 20 );
+    textAlign( CENTER, CENTER );
+    fill(0);
+    text("W", width/2+1, 48);
+    text("B", width/2, 103);
     frame++;
   }
   
@@ -56,18 +66,19 @@ class TestCPG {
   }
   
   void setupUi() {
-    weightA = new UiSlider(10, 10, 580, 30, -2, 2, 1);
-    weightA.button = color(150);
+    weightA = new UiSlider(10, 10, 580, 30, -1.5, 1.5, 1);
+    weightA.button = color(83, 81, 84);
     
-    weightB = new UiSlider(10, 50, 280, 30, -2, 2, 1);
-    weightB.button = color(200);
-    weightC = new UiSlider(310, 50, 280, 30, -2, 2, 1);
-    weightC.button = color(100);
+    weightB = new UiSlider(10, 50, 280, 30, -1.5, 1.5, 1);
+    weightB.button = color(218, 124, 48);
+    weightC = new UiSlider(310, 50, 280, 30, -1.5, 1.5, 1);
+    weightC.button = color(57, 106, 177);
     
-    biasA = new UiSlider(10, 90, 280, 30, -1, 1, .1);
-    biasB = new UiSlider(310, 90, 280, 30, -1, 1, .1);
-    biasB.button = color(100);
+    biasA = new UiSlider(10, 90, 280, 30, -1.5, 1.5, .1);
+    biasA.button = color(218, 124, 48);
+    biasB = new UiSlider(310, 90, 280, 30, -1.5, 1.5, .1);
+    biasB.button = color(57, 106, 177);
     
-    graph = new UiGrapherIII(10, height-250, 580, 240, "Outputs");
+    graph = new UiGrapherIII(10, height-270, 580, 260, "Outputs");
   }
 }

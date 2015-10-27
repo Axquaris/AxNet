@@ -73,8 +73,10 @@ public class UiGrapherIII{
     
     fill(200);
     rect(x, y, w, h);
-    strokeWeight(3);
+    strokeWeight(1);
+    line(x+numberEdge, y+map(0, min, max, h-edge, titleEdge), x+w-numberEdge, y+map(0, min, max, h-edge, titleEdge));
     
+    strokeWeight(3);
     pushMatrix();
     strokeCap(ROUND);
     //Draws graphs
@@ -104,6 +106,8 @@ public class UiGrapherIII{
     text(title, x+w/2, y+titleEdge/2);
     textSize( 15 );
     text(round(max), x+numberEdge/2, y+titleEdge);
+    if (min != 0)
+      text("0", x+numberEdge/2, y+map(0, min, max, h-edge, titleEdge));
     text(round(min), x+numberEdge/2, y+h-edge);
     
   }

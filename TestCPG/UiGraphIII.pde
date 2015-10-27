@@ -84,13 +84,13 @@ public class UiGrapherIII{
     for (int i = 0; i < pNC-1; i++) {
       line(x+numberEdge+i, getPosC(i), x+numberEdge+(i), getPosC(i+1));
     }
-    stroke(218, 124, 48);
-    for (int i = 0; i < pNA-1; i++) {
-      line(x+numberEdge+i, getPosA(i), x+numberEdge+(i), getPosA(i+1));
-    }
     stroke(57, 106, 177);
     for (int i = 0; i < pNB-1; i++) {
       line(x+numberEdge+i, getPosB(i), x+numberEdge+(i), getPosB(i+1));
+    }
+    stroke(218, 124, 48);
+    for (int i = 0; i < pNA-1; i++) {
+      line(x+numberEdge+i, getPosA(i), x+numberEdge+(i), getPosA(i+1));
     }
     popMatrix();
     

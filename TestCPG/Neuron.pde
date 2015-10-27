@@ -87,7 +87,6 @@ public class Neuron extends Buffer {
     return bias;
   }
   
-  @Override
   public float getOutput(int otherTimesFired) {
     if (timesFired > otherTimesFired)
       return lastOutput;

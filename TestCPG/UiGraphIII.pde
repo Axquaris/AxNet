@@ -70,23 +70,28 @@ public class UiGrapherIII{
   }
   
   void render(){
+    
     fill(200);
     rect(x, y, w, h);
     strokeWeight(3);
     
+    pushMatrix();
+    strokeCap(ROUND);
     //Draws graphs
     stroke(83, 81, 84);
     for (int i = 0; i < pNC-1; i++) {
-      line(x+numberEdge+i, getPosC(i), x+numberEdge+(i+1), getPosC(i+1));
+      line(x+numberEdge+i, getPosC(i), x+numberEdge+(i), getPosC(i+1));
     }
     stroke(218, 124, 48);
     for (int i = 0; i < pNA-1; i++) {
-      line(x+numberEdge+i, getPosA(i), x+numberEdge+(i+1), getPosA(i+1));
+      line(x+numberEdge+i, getPosA(i), x+numberEdge+(i), getPosA(i+1));
     }
     stroke(57, 106, 177);
     for (int i = 0; i < pNB-1; i++) {
-      line(x+numberEdge+i, getPosB(i), x+numberEdge+(i+1), getPosB(i+1));
+      line(x+numberEdge+i, getPosB(i), x+numberEdge+(i), getPosB(i+1));
     }
+    popMatrix();
+    
     stroke(0);
     strokeWeight(1);
     line(x+numberEdge, y+titleEdge, x+numberEdge, y+h-edge);
@@ -98,8 +103,9 @@ public class UiGrapherIII{
     textAlign( CENTER, CENTER );
     text(title, x+w/2, y+titleEdge/2);
     textSize( 15 );
-    text(round(max), x+numberEdge, y+titleEdge/2);
-    text(round(min), x+numberEdge, y+h-edge/2);
+    text(round(max), x+numberEdge/2, y+titleEdge);
+    text(round(min), x+numberEdge/2, y+h-edge);
+    
   }
     
   int getPosA(int i) {

@@ -31,11 +31,12 @@ void setup() {
   //UI
   setupUi();
   frame = 0;
+  noLoop();
 }
 
 void draw() { 
   background(89, 123, 150);
-    
+  
   updateVars();
   if (frame % 2 == 0) {
     n1.process();
@@ -55,7 +56,7 @@ void draw() {
   textAlign( CENTER, CENTER );
   fill(0);
   text("W", width/2+1, 48);
-  text("B", width/2, 103);
+  text("B", width/2, 106);
   frame++;
 }
 

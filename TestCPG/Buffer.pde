@@ -10,7 +10,7 @@ public class Buffer {
     output = f;
   }
   
-  public float getOutput() {
+  public float getOutputJS() {
     return output;
   }
   

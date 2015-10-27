@@ -22,14 +22,6 @@ public class Neuron extends Buffer {
     timesFired = 0;
   }
   
-  public Neuron(Buffer[] inputs, float[] weights, float bias) {
-    this.inputs = inputs;
-    this.weights = weights;
-    this.bias = bias;
-    
-    timesFired = 0;
-  }
-  
   public void process() {
     //Activation Function
     float activation = 0;
@@ -45,7 +37,7 @@ public class Neuron extends Buffer {
   }
   
   //Mutator Methods
-  public int addInput(Buffer n) { //adds self to inputs of given neuron
+  public int addInputJS(Buffer n) { //adds self to inputs of given neuron
     for(int i = 0; i < inputs.length; i++) {
       if(inputs[i] == null) {
         inputs[i] = n;
@@ -56,20 +48,20 @@ public class Neuron extends Buffer {
   }
   
   public int addInput(Buffer n, float weight) {
-    int i = addInput(n);
+    int i = addInputJS(n);
     if (i != -1)
       weights[i] = weight;
     return i;
   }
   
-  public void setWeight(float w ,int i) {
+  public void setWeightJS(float w ,int i) {
     weights[i] = w;
   }
   
   public void setWeight(float w ,Buffer f) {
     for (int i = 0; i < inputs.length; i++) {
       if (inputs[i] == f)
-        setWeight(w, i);
+        setWeightJS(w, i);
     }
   }
   
@@ -78,14 +70,14 @@ public class Neuron extends Buffer {
   }
   
   //Acessor Methods
-  public float getWeight(int i) {
+  public float getWeightJS(int i) {
     return weights[i];
   }
   
   public float getWeight(Buffer f) {
     for (int i = 0; i < inputs.length; i++) {
       if (inputs[i] == f)
-        return getWeight(i);
+        return getWeightJS(i);
     }
     System.err.println("ERROR AT NEURON "+this+".getWeight(Buffer f)");
     return 0;

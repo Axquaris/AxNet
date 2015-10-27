@@ -105,7 +105,7 @@ public class UiGrapherIII{
   int getPosA(int i) {
     float n = map(pointsA[i], min, max, 0, h-edge-titleEdge);
     n *= -1;
-    n += this.y + h - edge;
+    n += y + h - edge;
     
     return round(n);
   }
@@ -113,7 +113,7 @@ public class UiGrapherIII{
   int getPosB(int i) {
     float n = map(pointsB[i], min, max, 0, h-edge-titleEdge);
     n *= -1;
-    n += this.y + h - edge;
+    n += y + h - edge;
     
     return round(n);
   }
@@ -121,7 +121,7 @@ public class UiGrapherIII{
   int getPosC(int i) {
     float n = map(pointsC[i], min, max, 0, h-edge-titleEdge);
     n *= -1;
-    n += this.y + h - edge;
+    n += y + h - edge;
     
     return round(n);
   }

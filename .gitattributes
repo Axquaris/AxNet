@@ -1,5 +1,0 @@
-$ cat .gitattributes
-Vehicles/Neuron.pde linguist-vendored
-Vehicles/NeuralLayer.pde linguist-vendored
-Vehicles/NeuralNetwork.pde linguist-vendored
-Vehicles/Buffer.pde linguist-vendored

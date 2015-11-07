@@ -3,7 +3,7 @@ public class NeuralNetwork {
   
   public Buffer[] input;
   private NeuralLayer[] layers;
-  public Buffer[] output;
+  public NeuralLayer output;
   
   public NeuralNetwork(int numInputs, int[] numLayers) {
     input = new Buffer[numInputs];
@@ -23,7 +23,7 @@ public class NeuralNetwork {
   public void process() {
     for (NeuralLayer nl: layers)
       nl.process();
-    
+    output = layers[layers.length];
   }
   
   //Mutator Methods

@@ -1,2 +1,2 @@
 $ cat .gitattributes
-Axnet/AxNet-Lib.pde linguist-vendored
+Axnet/AxNet_Lib.pde linguist-vendored

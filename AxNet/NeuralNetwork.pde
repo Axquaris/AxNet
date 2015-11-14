@@ -33,7 +33,7 @@ public class NeuralNetwork {
   public void process() {
     for (NeuralLayer nl: layers)
       nl.process();
-    output = layers[layers.length];
+    output = layers[layers.length-1];
   }
   
   //Mutator Methods
